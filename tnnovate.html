@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASME TN-NOVATE SDG Innovation Expo 2025 | ASME SRIT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="/assets/asme-srit.png">
+    <meta name="theme-color" content="#1D4ED8">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-navbutton-color" content="#1D4ED8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    height: {
+                        'screen-90': '90vh',
+                        'screen-80': '80vh',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(81, 140, 196, 0.85), rgba(57, 129, 197, 0.9)), url('/assets/srit-hero.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .sdg-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .sdg-item {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid #e2e8f0;
+        }
+
+        .sdg-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 94, 184, 0.15);
+            border-color: #005EB8;
+        }
+
+        .committee-card {
+            transition: all 0.3s ease;
+        }
+
+        .committee-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #005EB8;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid #005EB8;
+            border-radius: 50%;
+            top: 15px;
+            right: -13px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -13px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-container::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                left: 0 !important;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+                right: auto;
+            }
+
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+        }
+
+        /* marquee animation */
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .asme-marquee {
+            animation: marquee 18s linear infinite;
+            will-change: transform;
+        }
+
+        .asme-marquee:focus,
+        .asme-marquee:hover {
+            animation-play-state: paused;
+            /* pause on hover or focus for accessibility */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Loading Screen -->
+    <div id="loader" class="fixed inset-0 bg-white flex items-center justify-center z-50">
+        <span class="text-blue-800 font-bold text-2xl">ASME SRIT</span>
+    </div>
+
+    <!-- Header/Navbar -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/index.html" class="flex items-center">
+                <img src="/assets/asme-srit.png" alt="ASME Logo" class="h-12">
+                <span class="ml-2 text-xl font-bold text-blue-800">ASME SRIT Student Section</span>
+            </a>
+
+            <div class="hidden md:flex space-x-8">
+                <a href="/index.html" class="nav-link text-gray-700 hover:text-blue-800 font-medium">Home</a>
+                <a href="/index.html#about" class="nav-link text-gray-700 hover:text-blue-800 font-medium">About</a>
+                <a href="/index.html#events" class="nav-link text-gray-700 hover:text-blue-800 font-medium">Events</a>
+                <a href="/index.html#gallery" class="nav-link text-gray-700 hover:text-blue-800 font-medium">Gallery</a>
+                <a href="/index.html#achievements"
+                    class="nav-link text-gray-700 hover:text-blue-800 font-medium">Achievements</a>
+                <a href="/index.html#membership"
+                    class="nav-link text-gray-700 hover:text-blue-800 font-medium">Membership</a>
+                <a href="/index.html#resources"
+                    class="nav-link text-gray-700 hover:text-blue-800 font-medium">Resources</a>
+                <a href="/index.html#contact" class="nav-link text-gray-700 hover:text-blue-800 font-medium">Contact</a>
+            </div>
+
+            <button class="md:hidden text-blue-800" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white shadow-lg" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="/index.html" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 rounded-md">Home</a>
+                <a href="/index.html#about" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 rounded-md">About</a>
+                <a href="/index.html#events"
+                    class="block px-3 py-2 text-gray-700 hover:bg-blue-50 rounded-md">Events</a>
+                <a href="/index.html#gallery"
+                    class="block px-3 py-2 text-gray-700 hover:bg-blue-50 rounded-md">Gallery</a>
+                <a href="/index.html#achievements"
+                    class="block px-3 py-2 text-gray-700 hover:bg-blue-50 rounded-md">Achievements</a>
+                <a href="/index.html#membership"
+                    class="block px-3 py-2 text-gray-700 hover:bg-blue-50 rounded-md">Membership</a>
+                <a href="/index.html#resources"
+                    class="block px-3 py-2 text-gray-700 hover:bg-blue-50 rounded-md">Resources</a>
+                <a href="/index.html#contact"
+                    class="block px-3 py-2 text-gray-700 hover:bg-blue-50 rounded-md">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 🔹 Marquee Section (Full Width + Sticky) -->
+    <div class="w-full bg-blue-700 text-white sticky top-[72px] z-40">
+        <!-- adjust top-[72px] depending on your navbar height -->
+        <div class="relative overflow-hidden">
+            <div tabindex="0" class="asme-marquee whitespace-nowrap py-2">
+                <span class="inline-block mr-6 font-semibold">
+                    ASME SRIT — TNNOVATE Registration is OPEN!
+                </span>
+                <a href="/tnnovate.html" target="_blank" rel="noopener noreferrer"
+                    class="inline-block mr-6 underline font-bold focus:outline-none focus:ring-2 focus:ring-white/60">
+                    Click here to Register → TNNOVATE Registration
+                </a>
+                <span class="inline-block mr-6">Hurry up! Limited slots available 🚀</span>
+            </div>
+        </div>
+    </div>
+    <!-- 🔹 End Marquee -->
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white h-screen-80 flex items-center">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center mb-6 space-x-5">
+                <img src="/assets/asme-tn.png" alt="ASME TN Logo" class="h-20 object-contain">
+                <img src="/assets/asme-srit.png" alt="ASME Logo" class="h-20 object-contain">
+                <img src="/assets/SRITlogowhite.png" alt="SRIT Logo" class="h-20 object-contain">
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">ASME TN-NOVATE</h1>
+            <h2 class="text-2xl md:text-4xl font-semibold mb-6">SDG Innovation Expo 2025</h2>
+            <p class="text-xl md:text-2xl mb-10 max-w-4xl mx-auto leading-relaxed">Organized by ASME Tamil Nadu Section
+                in Association with Sri Ramakrishna Institute of Technology</p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="https://konfhub.com/tnnovate2" target="_blank"
+                    class="bg-white text-blue-800 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition text-lg shadow-lg">
+                    <i class="fas fa-user-plus mr-2"></i>
+                    Register Now (KonfHub)
+                </a>
+                <a href="/assets/novateps.pdf"
+                    class="border-2 border-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-blue-800 transition text-lg">
+                    Problem Statement for Hackathon (SRIT Students)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">About the Event</h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">A pioneering hybrid event that unites college
+                    students across India to celebrate innovation and sustainability through Sustainable Development
+                    Goals</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 mb-16">
+                <div class="bg-blue-50 p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-6">About ASME Tamil Nadu Section</h3>
+                    <p class="text-gray-700 mb-4">Established on January 23, 2024, the American Society of Mechanical
+                        Engineers (ASME) Tamil Nadu Section serves as a vibrant hub for mechanical engineering
+                        professionals and students across the state.</p>
+                    <p class="text-gray-700">Our mission is to create engaging pathways for professional members and
+                        graduate students, expand the ASME professional community, and facilitate the development,
+                        dissemination, and application of cutting-edge engineering knowledge.</p>
+                </div>
+
+                <div class="bg-blue-50 p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-6">About ASME SRIT</h3>
+                    <p class="text-gray-700 mb-4">The ASME Student Section at Sri Ramakrishna Institute of Technology
+                        was established in 2022 and has quickly become a hub of engineering enthusiasm and innovation on
+                        campus.</p>
+                    <p class="text-gray-700">In the ASME Competition leaderboard for 2022-2023, Sri Ramakrishna
+                        Institute of Technology secured the First position overall, demonstrating our commitment to
+                        excellence and innovation.</p>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-800 to-blue-600 text-white p-10 rounded-xl shadow-xl mb-16">
+                <h3 class="text-2xl md:text-3xl font-bold mb-6 text-center">Event Vision</h3>
+                <p class="text-xl text-center mb-8">The ASME TN-NOVATE: SDG Innovation Expo 2025 empowers students to
+                    develop creative solutions to pressing global issues through Sustainable Development Goals,
+                    fostering widespread engagement and exposure to diverse ideas nationally.</p>
+                <div class="text-center">
+                    <p class="text-lg"><strong>Venue:</strong> Sri Ramakrishna Institute of Technology, Coimbatore
+                    </p>
+                    <p class="text-lg"><strong>Date:</strong> October 14, 2025</p>
+                </div>
+            </div>
+
+            <div class="mb-16">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-800 mb-8 text-center">Sustainable Development Goals
+                    (SDGs)</h3>
+                <p class="text-gray-700 max-w-4xl mx-auto text-center">The Sustainable Development Goals (SDGs), also
+                    known as the Global Goals, were adopted by all United Nations Member States in 2015 as a universal
+                    call to action to end poverty, protect the planet, and ensure that all people enjoy peace and
+                    prosperity by 2030. The 17 SDGs are integrated—they recognize that action in one area will affect
+                    outcomes in others, and that development must balance social, economic, and environmental
+                    sustainability.</p>
+                <img src="/assets/sdg.png" alt="SDG Goals" class="mt-8 mx-auto max-w-full h-auto">
+            </div>
+
+            <!-- SDG Themes
+            <div class="mb-16">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-800 mb-8 text-center">Sustainable Development Goals
+                    Themes</h3>
+                <div class="sdg-grid">
+                    <div class="sdg-item">
+                        <div class="w-16 h-16 bg-red-100 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            <span class="text-red-800 font-bold text-xl">1</span>
+                        </div>
+                        <p class="font-semibold text-sm">NO POVERTY</p>
+                    </div>
+                    <div class="sdg-item">
+                        <div class="w-16 h-16 bg-green-100 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            <span class="text-green-800 font-bold text-xl">3</span>
+                        </div>
+                        <p class="font-semibold text-sm">GOOD HEALTH</p>
+                    </div>
+                    <div class="sdg-item">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            <span class="text-blue-800 font-bold text-xl">4</span>
+                        </div>
+                        <p class="font-semibold text-sm">QUALITY EDUCATION</p>
+                    </div>
+                    <div class="sdg-item">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            <span class="text-yellow-800 font-bold text-xl">6</span>
+                        </div>
+                        <p class="font-semibold text-sm">CLEAN WATER</p>
+                    </div>
+                    <div class="sdg-item">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            <span class="text-purple-800 font-bold text-xl">8</span>
+                        </div>
+                        <p class="font-semibold text-sm">DECENT WORK</p>
+                    </div>
+                    <div class="sdg-item">
+                        <div class="w-16 h-16 bg-red-100 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            <span class="text-red-800 font-bold text-xl">10</span>
+                        </div>
+                        <p class="font-semibold text-sm">REDUCED INEQUALITY</p>
+                    </div>
+                    <div class="sdg-item">
+                        <div class="w-16 h-16 bg-green-100 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            <span class="text-green-800 font-bold text-xl">12</span>
+                        </div>
+                        <p class="font-semibold text-sm">RESPONSIBLE CONSUMPTION</p>
+                    </div>
+                    <div class="sdg-item">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            <span class="text-blue-800 font-bold text-xl">13</span>
+                        </div>
+                        <p class="font-semibold text-sm">CLIMATE ACTION</p>
+                    </div>
+                    <div class="sdg-item">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            <span class="text-yellow-800 font-bold text-xl">15</span>
+                        </div>
+                        <p class="font-semibold text-sm">LIFE ON LAND</p>
+                    </div>
+                    <div class="sdg-item">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            <span class="text-purple-800 font-bold text-xl">16</span>
+                        </div>
+                        <p class="font-semibold text-sm">PEACE & JUSTICE</p>
+                    </div>
+                    <div class="sdg-item">
+                        <div class="w-16 h-16 bg-red-100 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            <span class="text-red-800 font-bold text-xl">17</span>
+                        </div>
+                        <p class="font-semibold text-sm">PARTNERSHIPS</p>
+                    </div>
+                </div> -->
+            <!-- </div> -->
+
+            <!-- Event Timeline -->
+            <div class="mb-16">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-800 mb-8 text-center">Event Timeline</h3>
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4 class="font-bold text-lg text-blue-800">September 1, 2025</h4>
+                            <p>Registration Starts</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4 class="font-bold text-lg text-blue-800">October 10, 2025</h4>
+                            <p>Registration Closes</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4 class="font-bold text-lg text-blue-800">October 13 & 14, 2025</h4>
+                            <p>Hackathon (exclusively for SRIT Students)</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4 class="font-bold text-lg text-blue-800">October 14, 2025</h4>
+                            <p>SDG Innovation Expo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="registration" class="py-20 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-16">Registration Information</h2>
+
+            <div class="grid md:grid-cols-2 gap-10 mb-16">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-6">Registration Details</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-blue-800"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Team Size</h4>
+                                <p class="text-gray-600">1-3 members per team</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-rupee-sign text-blue-800"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Registration Fee</h4>
+                                <p class="text-gray-600">INR 300/- per engineering student</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-trophy text-blue-800"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Prize Pool</h4>
+                                <p class="text-gray-600">Total Cash Prize: 500 USD</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-award text-blue-800"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Special Awards</h4>
+                                <p class="text-gray-600">Top 10 teams receive special recognition</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-6">Rules & Regulations</h3>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800">Eligibility</h4>
+                            <p class="text-sm text-gray-600">Open to engineering students from recognized institutions.
+                                Cross-institution teams allowed. No diploma students.</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800">Project Requirements</h4>
+                            <p class="text-sm text-gray-600">Must address SDGs, be original work, demonstrate innovation
+                                and technical feasibility.</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800">Presentation</h4>
+                            <p class="text-sm text-gray-600">10-minute presentation + 5-minute Q&A session with judges.
+                            </p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800">Judging Criteria</h4>
+                            <p class="text-sm text-gray-600">Innovation, technical feasibility, SDG alignment,
+                                presentation, teamwork, and working prototype.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="https://konfhub.com/tnnovate2" target="_blank"
+                    class="inline-flex items-center bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-700 transition text-lg shadow-lg">
+                    <i class="fas fa-user-plus mr-2"></i>
+                    Register Now on KonfHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-16">Participation Roadmap</h2>
+
+            <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div class="text-center bg-blue-50 p-6 rounded-xl shadow-md">
+                    <div class="w-16 h-16 bg-blue-800 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-user-plus text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-blue-800 mb-2">Registration</h3>
+                    <p class="text-gray-600">Team registers through KonfHub platform</p>
+                </div>
+
+                <!-- <div class="text-center bg-blue-50 p-6 rounded-xl shadow-md">
+                    <div class="w-16 h-16 bg-blue-800 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-video text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-blue-800 mb-2">Video Submission</h3>
+                    <p class="text-gray-600">Submit working video for special award consideration</p>
+                </div> -->
+
+                <div class="text-center bg-blue-50 p-6 rounded-xl shadow-md">
+                    <div class="w-16 h-16 bg-blue-800 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-file-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-blue-800 mb-2">Abstract Submission</h3>
+                    <p class="text-gray-600">Email abstract for conference proceedings</p>
+                </div>
+
+                <div class="text-center bg-blue-50 p-6 rounded-xl shadow-md">
+                    <div class="w-16 h-16 bg-blue-800 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-microscope text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-blue-800 mb-2">Final Expo</h3>
+                    <p class="text-gray-600">Showcase working prototype at SRIT</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Committee Section -->
+    <section id="committee" class="py-20 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-16">Organizing Committee</h2>
+
+            <!-- Advisory Committee -->
+            <div class="mb-16">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-800 mb-8 text-center">Advisory Committee</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="committee-card bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">Thiru. R. Sundar</h4>
+                        <p class="text-gray-600 text-sm">Managing Trustee<br>SNR Sons Charitable Trust, Coimbatore</p>
+                    </div>
+                    <div class="committee-card bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">Dr. Venkatesh Babu</h4>
+                        <p class="text-gray-600 text-sm">Chair ASME TN Section<br>Pro Vice-Chancellor, Bharath
+                            University-Chennai</p>
+                    </div>
+                    <div class="committee-card bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">Mr. N. Prakash</h4>
+                        <p class="text-gray-600 text-sm">Vice-Chair ASME TN Section<br>CEO & Director, Vahyu Techno
+                            Engineers
+                            Pvt. Ltd.</p>
+                    </div>
+                    <div class="committee-card bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">Dr. J. David Rathnaraj</h4>
+                        <p class="text-gray-600 text-sm">Principal<br>Sri Ramakrishna Institute of Technology</p>
+                    </div>
+                    <div class="committee-card bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">Mr. N. Venkadesan</h4>
+                        <p class="text-gray-600 text-sm">Secretary ASME TN Section<br>Manager-Inspection, Certification
+                            Engineers International Limited</p>
+                    </div>
+                    <div class="committee-card bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">Dr. S. Christopher</h4>
+                        <p class="text-gray-600 text-sm">Scientist, Deep Sea Technology<br>National Institute of Ocean
+                            Technology</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Institutional Steering Committee -->
+            <div class="mb-16">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-800 mb-8 text-center">Institutional Steering
+                    Committee</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="committee-card bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">Mr. R. Immanual</h4>
+                        <p class="text-gray-600 text-sm">Assistant Professor (Sr. Gr.)<br>Mechanical Engineering</p>
+                    </div>
+                    <div class="committee-card bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">Ms. N. Sanjana</h4>
+                        <p class="text-gray-600 text-sm">Assistant Professor<br>Computer Science Engineering</p>
+                    </div>
+                    <div class="committee-card bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">Ms. J. Sangeetha Saral</h4>
+                        <p class="text-gray-600 text-sm">Assistant Professor<br>Information Technology
+                        </p>
+                    </div>
+                    <div class="committee-card bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">Ms. D. Poornima</h4>
+                        <p class="text-gray-600 text-sm">Assistant Professor (Sl. Gr.)<br>Electrical and Electronics
+                            Engineering
+                        </p>
+                    </div>
+                    <div class="committee-card bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">Ms. S. Dhivya</h4>
+                        <p class="text-gray-600 text-sm">Assistant Professor<br>Electronics and Commmunication
+                            Engineering
+                        </p>
+                    </div>
+                    <!-- <div class="committee-card bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">Ms. K. Mohanapriya</h4>
+                        <p class="text-gray-600 text-sm">Assistant Professor<br>Computer Science Engineering</p>
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- Steering Committee
+            <div class="mb-16">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-800 mb-8 text-center">Steering Committee</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="committee-card bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">Mr. R. Immanual</h4>
+                        <p class="text-gray-600 text-sm">General Chair<br>Assistant Professor, Mechanical Engineering
+                        </p>
+                    </div>
+                    <div class="committee-card bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">Ms. J. Sangeetha Saral</h4>
+                        <p class="text-gray-600 text-sm">Secretary<br>Assistant Professor, Computer Science Engineering
+                        </p>
+                    </div>
+                    <div class="committee-card bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">Ms. N. Sanjana</h4>
+                        <p class="text-gray-600 text-sm">Secretary<br>Assistant Professor, Computer Science Engineering
+                        </p>
+                    </div>
+                    <div class="committee-card bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">Ms. Manushree A</h4>
+                        <p class="text-gray-600 text-sm">Chair Outreach<br>Final Year ECE Student</p>
+                    </div>
+                    <div class="committee-card bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">Mr. Ajay Vardhanan JV</h4>
+                        <p class="text-gray-600 text-sm">Chair Sponsorship<br>Final Year Mechanical Student</p>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Hackathon Announcement -->
+    <section class="py-20 bg-gradient-to-r from-blue-800 to-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Special Announcement for SRIT Students</h2>
+            <h3 class="text-2xl md:text-3xl font-semibold mb-8">Hackathon - October 9 & 10, 2025</h3>
+
+            <div class="max-w-4xl mx-auto mb-10">
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white/20 p-6 rounded-xl backdrop-blur-sm">
+                        <h4 class="font-bold text-2xl mb-2">₹10,000</h4>
+                        <p>First Prize</p>
+                    </div>
+                    <div class="bg-white/20 p-6 rounded-xl backdrop-blur-sm">
+                        <h4 class="font-bold text-2xl mb-2">₹5,000</h4>
+                        <p>Second Prize</p>
+                    </div>
+                    <div class="bg-white/20 p-6 rounded-xl backdrop-blur-sm">
+                        <h4 class="font-bold text-2xl mb-2">₹3,000</h4>
+                        <p>Third Prize</p>
+                    </div>
+                </div>
+
+                <!-- <p class="text-xl mb-6">• Internal Problem Statements</p> -->
+                <p class="text-xl mb-6">• Registration: September 1 - 13, 2025 only</p>
+                <p class="text-xl font-semibold">Showcase your innovation, solve real challenges, and win exciting
+                    rewards!</p>
+            </div>
+
+            <a href="/assets/novateps.pdf"
+                class="inline-flex items-center bg-white text-blue-800 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition text-lg shadow-lg">
+                <i class="fas fa-laptop-code mr-2"></i>
+                Get Your Problem Statement Here
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-16">Contact Us</h2>
+
+            <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                <div class="bg-blue-50 p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-6">Get In Touch</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-blue-800"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Phone</h4>
+                                <p class="text-gray-600">+91 9677817992<br>+91 9361292544</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-blue-800"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <p class="text-gray-600">asme@sritcbe.ac.in</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-globe text-blue-800"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Website</h4>
+                                <a href="https://asmesrit.org" class="text-gray-600">asmesrit.org</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-6">Venue Address</h3>
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-map-marker-alt text-blue-800"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-600">
+                                Sri Ramakrishna Institute of Technology<br>
+                                Perur Chettipalayam, Pachapalayam<br>
+                                Coimbatore - 641010, Tamil Nadu, India
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-10 mb-10">
+                <div>
+                    <div class="mb-5 flex space-x-4 justify-start">
+                        <img src="/assets/asme-srit.png" alt="ASME SRIT Logo" class="h-12">
+                        <img src="/assets/SRIT - New Logo File.png" alt="SRIT Logo" class="h-12">
+                    </div>
+                    <h3 class="text-xl font-bold mb-5">About ASME SRIT</h3>
+                    <p class="text-blue-200">The ASME Student Section at Sri Ramakrishna Institute of Technology
+                        provides students
+                        with opportunities for professional development, technical growth, and leadership experience
+                        through innovative programs and events.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-5">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="/index.html" class="text-blue-200 hover:text-white transition">Home</a></li>
+                        <li><a href="/index.html#about" class="text-blue-200 hover:text-white transition">About</a></li>
+                        <li><a href="/index.html#events" class="text-blue-200 hover:text-white transition">Events</a>
+                        </li>
+                        <li><a href="/index.html#gallery" class="text-blue-200 hover:text-white transition">Gallery</a>
+                        </li>
+                        <li><a href="/index.html#achievements"
+                                class="text-blue-200 hover:text-white transition">Achievements</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-5">Global ASME Competitions</h3>
+                    <ul class="space-y-3">
+                        <li><a href="https://efests.asme.org/competitions/asme-extended-reality-challenge"
+                                class="text-blue-200 hover:text-white transition">ASME Extended Reality Challenge (XRC):
+                                Autonomous Vehicles</a></li>
+                        <li><a href="https://efests.asme.org/competitions/human-powered-vehicle-challenge-(hpvc)"
+                                class="text-blue-200 hover:text-white transition">ASME e-Human Powered Vehicle Challenge
+                                (e-HPVC)</a></li>
+                        <li><a href="https://efests.asme.org/competitions/student-design-competition-(sdc)"
+                                class="text-blue-200 hover:text-white transition">ASME Student Design Competition
+                                (SDC)</a></li>
+                        <li><a href="https://efests.asme.org/competitions/asme-innovative-additive-manufacturing-3d-challeng"
+                                class="text-blue-200 hover:text-white transition">ASME Innovative Additive Manufacturing
+                                3D Challenge (IAM3D®)</a></li>
+                    </ul>
+                </div>
+
+                <!-- <div>
+                <h3 class="text-xl font-bold mb-5">Stay Updated</h3>
+                <p class="text-blue-200 mb-5">Subscribe to our newsletter for the latest updates on events,
+                    workshops, and opportunities.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Your email address"
+                        class="px-4 py-3 rounded-l-lg text-gray-800 w-full focus:outline-none">
+                    <button class="bg-blue-800 px-4 py-3 rounded-r-lg hover:bg-blue-700 transition">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div> -->
+            </div>
+
+            <!-- Social icons row -->
+            <div class="pt-8 border-t border-blue-800 flex justify-center space-x-5">
+                <a href="https://www.instagram.com/asme_srit/"
+                    class="text-blue-200 hover:text-white transition text-xl"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/asme-srit/"
+                    class="text-blue-200 hover:text-white transition text-xl"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+
+            <!-- Separate bottom copyright & dev line -->
+            <div class="pt-6 text-center">
+                <p class="text-blue-200 text-sm">
+                    © <span id="currentYear"></span> ASME SRIT Student Section. All rights reserved.
+                </p>
+                <p class="text-blue-300 text-sm mt-2">
+                    Developed with ❤️ by
+                    <a href="https://www.linkedin.com/in/alan-s-9385a328a" target="_blank"
+                        class="underline hover:text-white">
+                        Alan S.
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Loading screen
+        window.addEventListener("load", function () {
+            const loader = document.getElementById("loader");
+            setTimeout(() => {
+                loader.style.opacity = "0";
+                loader.style.transition = "opacity 0.5s ease";
+                setTimeout(() => loader.style.display = "none", 500);
+            }, 1000); // 1 second delay
+        });
+    </script>
+</body>
+
+</html>
