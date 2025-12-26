@@ -60,7 +60,7 @@ Sri Ramakrishna Institute of Technology
 ASME SRIT (Organization Account)
 
 **Contributor:**  
-Alan S (GitHub: `alansahai`)
+Alan S (GitHub: `@alansahai`)
 
 ---
 
