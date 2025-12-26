@@ -16,7 +16,7 @@ It acts as a centralized platform to highlight:
 - Association activities and events  
 - Student achievements and recognitions  
 - Chapter members and leadership  
-- Initiatives such as TN Nnovate  
+- Initiatives such as TN-Novate  
 - Downloadable resources and documents  
 
 The website is built with simplicity and clarity in mind, ensuring easy navigation and accessibility for all users.
